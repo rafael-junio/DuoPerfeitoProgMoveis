@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DuoPerfeito">
         <activity
+            android:name=".profissional.ProfLoginActivity"
+            android:exported="true" />
+        <activity
+            android:name=".empresario.EmpLoginActivity"
+            android:exported="true" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
