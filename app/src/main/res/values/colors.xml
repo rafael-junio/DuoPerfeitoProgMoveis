@@ -7,4 +7,11 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <!--  Button Colors  -->
+    <color name="orange">#F9975D</color>
+    <color name="red">#C85C5C</color>
+    <!--  Interface Colors  -->
+    <color name="main_hard">#94B3FD</color>
+    <color name="main_soft">#94DAFF</color>
+    <color name="background">#99FEFF</color>
 </resources>

@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">DuoPerfeito</string>
+    <string name="btnProfText">Eu quero PROCURAR um trabalho</string>
+    <string name="btnEmpText">Eu quero OFERCER um trabalho</string>
 </resources>
