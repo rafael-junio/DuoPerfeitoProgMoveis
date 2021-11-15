@@ -2,4 +2,19 @@
     <string name="app_name">DuoPerfeito</string>
     <string name="btnProfText">Eu quero PROCURAR um trabalho</string>
     <string name="btnEmpText">Eu quero OFERCER um trabalho</string>
+    <string name="textLogin">Bem vindo!</string>
+    <string name="textCadastro">Ou, cadastre-se:</string>
+    <string name="textCadastrese">Cadastre-se!</string>
+    <string name="hintEmail">exemplo@ufms.com</string>
+    <string name="hintSenha">Senha</string>
+    <string name="hintTelefone">31996699999</string>
+    <string name="hintNome">Nome</string>
+    <string name="btnLoginText">Log in</string>
+    <string name="btnCadastroText">Cadastre-se</string>
+    <!--  Main Emp/Prof Activity Strings  -->
+    <string name="btnAddInfoText">Adicionar informações pessoais</string>
+    <string name="btnStatsInfoText">Consultar status das vagas tentadas</string>
+    <string name="btnSearchInfoText">Procurar por vagas</string>
+    <string name="btnEmpVagasText">Administrar e adicionar vagas</string>
+    <string name="btnEmpCurrText">Analisar currículos</string>
 </resources>

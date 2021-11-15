@@ -9,6 +9,7 @@
     <color name="white">#FFFFFFFF</color>
     <!--  Button Colors  -->
     <color name="orange">#F9975D</color>
+    <color name="blue_light">#94B3FD</color>
     <color name="red">#C85C5C</color>
     <!--  Interface Colors  -->
     <color name="main_hard">#94B3FD</color>

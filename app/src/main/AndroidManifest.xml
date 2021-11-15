@@ -10,6 +10,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DuoPerfeito">
         <activity
+            android:name=".profissional.ProfMainActivity"
+            android:exported="true" />
+        <activity
+            android:name=".empresario.EmpMainActivity"
+            android:exported="true" />
+        <activity
+            android:name=".profissional.ProfCadastroActivity"
+            android:exported="true" />
+        <activity
+            android:name=".empresario.EmpCadastroActivity"
+            android:exported="true" />
+        <activity
             android:name=".profissional.ProfLoginActivity"
             android:exported="true" />
         <activity

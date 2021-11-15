@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".profissional.ProfLoginActivity">
+    tools:context=".profissional.ProfCadastroActivity">
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
@@ -13,41 +13,66 @@
         android:layout_marginTop="40dp"
         android:layout_marginEnd="150dp"
         android:fontFamily="sans-serif-condensed-medium"
-        android:text="@string/textLogin"
+        android:text="@string/textCadastrese"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textViewCadastro"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="150dp"
+    <EditText
+        android:id="@+id/edtTxtNome"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="50dp"
-        android:layout_marginEnd="150dp"
-        android:fontFamily="sans-serif-condensed-medium"
-        android:text="@string/textCadastro"
-        android:textSize="25sp"
+        android:layout_marginEnd="30dp"
+        android:ems="10"
+        android:hint="@string/hintNome"
+        android:inputType="textEmailAddress"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <EditText
+        android:id="@+id/edtTxtTelefone"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="30dp"
+        android:ems="10"
+        android:hint="@string/hintTelefone"
+        android:inputType="phone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtTxtNome" />
 
     <EditText
         android:id="@+id/edtTxtEmail"
         android:layout_width="350dp"
         android:layout_height="50dp"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="75dp"
+        android:layout_marginTop="50dp"
         android:layout_marginEnd="30dp"
-        android:layout_marginBottom="50dp"
         android:ems="10"
         android:hint="@string/hintEmail"
         android:inputType="textEmailAddress"
-        app:layout_constraintBottom_toTopOf="@+id/edtTxtSenha"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/edtTxtTelefone" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        android:text="Sua senha:"
+        app:layout_constraintBottom_toTopOf="@+id/edtTxtSenha"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtTxtEmail"
+        app:layout_constraintVertical_bias="0.0" />
 
     <EditText
         android:id="@+id/edtTxtSenha"
@@ -60,6 +85,7 @@
         android:hint="@string/hintSenha"
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtTxtEmail" />
 
@@ -68,44 +94,41 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
+        android:layout_marginTop="15dp"
         android:layout_marginBottom="15dp"
         android:text="Seu Email:"
         app:layout_constraintBottom_toTopOf="@+id/edtTxtEmail"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtTxtTelefone" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginBottom="15dp"
+        android:text="Seu Nome:"
+        app:layout_constraintBottom_toTopOf="@+id/edtTxtNome"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginTop="15dp"
         android:layout_marginBottom="15dp"
-        android:text="Sua senha:"
-        app:layout_constraintBottom_toTopOf="@+id/edtTxtSenha"
+        android:text="Seu Telefone:"
+        app:layout_constraintBottom_toTopOf="@+id/edtTxtTelefone"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtTxtEmail" />
-
-    <Button
-        android:id="@+id/btnLogin"
-        android:layout_width="350dp"
-        android:layout_height="75dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="30dp"
-        android:backgroundTint="@color/orange"
-        android:fontFamily="sans-serif-condensed-medium"
-        android:text="@string/btnLoginText"
-        android:textSize="25sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtTxtSenha" />
+        app:layout_constraintTop_toBottomOf="@+id/edtTxtNome" />
 
     <Button
         android:id="@+id/btnCadastro"
         android:layout_width="350dp"
         android:layout_height="75dp"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="75dp"
         android:layout_marginEnd="30dp"
         android:backgroundTint="@color/blue_light"
         android:fontFamily="sans-serif-condensed-medium"
@@ -113,5 +136,5 @@
         android:textSize="25dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewCadastro" />
+        app:layout_constraintTop_toBottomOf="@+id/edtTxtSenha" />
 </androidx.constraintlayout.widget.ConstraintLayout>
