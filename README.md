@@ -20,6 +20,6 @@ Aplicativo para filtragem, cadastro e organização de vagas para profissionais 
 - Acesso a câmera do smartphone
 
 ## Integrantes
-Guilherme Ribeira Carvalho 
+Guilherme Ribeiro de Carvalho 
 
 Rafael Junio Xavier
