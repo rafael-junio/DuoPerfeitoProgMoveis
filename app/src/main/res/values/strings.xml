@@ -9,6 +9,7 @@
     <string name="hintSenha">Senha</string>
     <string name="hintTelefone">31996699999</string>
     <string name="hintNome">Nome</string>
+    <string name="hintCpf">CPF</string>
     <string name="btnLoginText">Log in</string>
     <string name="btnCadastroText">Cadastre-se</string>
     <!--  Main Emp/Prof Activity Strings  -->
