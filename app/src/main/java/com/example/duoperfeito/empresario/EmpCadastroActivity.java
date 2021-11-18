@@ -34,24 +34,52 @@ public class EmpCadastroActivity extends AppCompatActivity {
 
         empresarioRepository = new EmpresarioRepository(this);
         cadastrar.setOnClickListener(view -> {
-            Empresario empresario = new Empresario();
-            empresario.setNome(nome.getText().toString());
-            empresario.setSobrenome(nome.getText().toString());
-            empresario.setEmail(email.getText().toString());
-            empresario.setTelefone(telefone.getText().toString());
-            empresario.setSenha(senha.getText().toString());
-            empresario.setCpf(cpf.getText().toString());
-            empresarioRepository.salva(empresario, new EmpresarioRepository.DadosCarregadosCallback<Empresario>() {
-                @Override
-                public void quandoSucesso(Empresario resultado) {
-                    Toast.makeText(getApplicationContext(), "Empresário cadastrado!", Toast.LENGTH_SHORT).show();
-                }
+            Empresario empresarioEntity = new Empresario();
+            empresarioEntity.setNome(nome.getText().toString());
+            empresarioEntity.setSobrenome(nome.getText().toString());
+            empresarioEntity.setEmail(email.getText().toString());
+            empresarioEntity.setTelefone(telefone.getText().toString());
+            empresarioEntity.setSenha(senha.getText().toString());
+            empresarioEntity.setCpf(cpf.getText().toString());
 
-                @Override
-                public void quandoFalha(String erro) {
-                    Toast.makeText(getApplicationContext(), "Preencha corretamente os campos!", Toast.LENGTH_SHORT).show();
-                }
-            });
+            if (validaInput(empresarioEntity)) {
+                DuoPerfeitoDatabase database = DuoPerfeitoDatabase.getInstance(getApplicationContext());
+                final EmpresarioDAO empresarioDAO = database.getEmpresarioDAO();
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        empresarioDAO.salvar(empresarioEntity);
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                Toast.makeText(getApplicationContext(), "Empresário cadastrado!", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                    }
+                }).start();
+            }
+            else {
+                Toast.makeText(getApplicationContext(), "Preencha todos os campos!", Toast.LENGTH_SHORT).show();
+            }
+//            empresarioRepository.salva(empresario, new EmpresarioRepository.DadosCarregadosCallback<Empresario>() {
+//                @Override
+//                public void quandoSucesso(Empresario resultado) {
+//                    Toast.makeText(getApplicationContext(), "Empresário cadastrado!", Toast.LENGTH_SHORT).show();
+//                }
+//
+//                @Override
+//                public void quandoFalha(String erro) {
+//                    Toast.makeText(getApplicationContext(), "Preencha corretamente os campos!", Toast.LENGTH_SHORT).show();
+//                }
+//            });
         });
     }
+    private Boolean validaInput (Empresario empresarioEntity) {
+        return !empresarioEntity.getNome().isEmpty() &&
+                !empresarioEntity.getCpf().isEmpty() &&
+                !empresarioEntity.getEmail().isEmpty() &&
+                !empresarioEntity.getSenha().isEmpty() &&
+                !empresarioEntity.getTelefone().isEmpty();
+    }
+
 }

@@ -9,13 +9,14 @@ import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 import androidx.room.Update;
 
+import com.example.duoperfeito.model.Empresario;
 import com.example.duoperfeito.model.Profissional;
 
 @Dao
 public interface ProfissionalDAO {
 
     @Insert
-    long salva(Profissional profissional);
+    long salvar(Profissional profissional);
 
     @Update
     void atualiza(Profissional profissional);
@@ -26,9 +27,15 @@ public interface ProfissionalDAO {
     @Query("SELECT * FROM Profissional WHERE id = :id")
     Profissional buscaProfissional(long id);
 
+    @Query("SELECT * FROM Profissional WHERE email = :email")
+    Empresario buscarProfissionalByEmail(long email);
+
+    @Query("SELECT * FROM Profissional WHERE email = (:email) and senha = :senha")
+    Empresario buscarProfissionalLogin(String email, String senha);
+
     @Delete
     void remove(Profissional profissional);
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    void salva(List<Profissional> profissionais);
+    void salvar(List<Profissional> profissionais);
 }

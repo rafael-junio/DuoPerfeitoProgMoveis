@@ -57,7 +57,7 @@ public class ProfissionalRepository {
     private void atualizaInterno(List<Profissional> profissionais,
                                  DadosCarregadosCallback<List<Profissional>> callback) {
         new BaseAsyncTask<>(() -> {
-            dao.salva(profissionais);
+            dao.salvar(profissionais);
             return dao.buscaTodos();
         }, callback::quandoSucesso)
                 .execute();
@@ -88,7 +88,7 @@ public class ProfissionalRepository {
     private void salvaInterno(Profissional profissional,
                               DadosCarregadosCallback<Profissional> callback) {
         new BaseAsyncTask<>(() -> {
-            long id = dao.salva(profissional);
+            long id = dao.salvar(profissional);
             return dao.buscaProfissional(id);
         }, callback::quandoSucesso)
                 .execute();

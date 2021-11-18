@@ -26,6 +26,12 @@ public interface EmpresarioDAO {
     @Query("SELECT * FROM Empresario WHERE id = :id")
     Empresario buscarEmpresario(long id);
 
+    @Query("SELECT * FROM Empresario WHERE email = :email")
+    Empresario buscarEmpresarioByEmail(long email);
+
+    @Query("SELECT * FROM Empresario WHERE email = (:email) and senha = :senha")
+    Empresario buscarEmpresarioLogin(String email, String senha);
+
     @Delete
     void remover(Empresario empresario);
 
