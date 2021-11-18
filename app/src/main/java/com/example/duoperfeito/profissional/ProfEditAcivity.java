@@ -121,10 +121,13 @@ public class ProfEditAcivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        Bundle bundle = data.getExtras();
-        Bitmap bitmapImg = (Bitmap) bundle.get("data");
-        imgByteProfile = convertImageViewToByteArray(bitmapImg);
-        imgProfile.setImageBitmap(bitmapImg);
+        if (resultCode != 0) {
+            Bundle bundle = data.getExtras();
+            Bitmap bitmapImg = (Bitmap) bundle.get("data");
+            imgByteProfile = convertImageViewToByteArray(bitmapImg);
+            imgProfile.setImageBitmap(bitmapImg);
+        }
+
 
     }
     private Boolean checkPermissions() {
