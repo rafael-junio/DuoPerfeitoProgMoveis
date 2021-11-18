@@ -28,10 +28,10 @@ public interface ProfissionalDAO {
     Profissional buscaProfissional(long id);
 
     @Query("SELECT * FROM Profissional WHERE email = :email")
-    Empresario buscarProfissionalByEmail(long email);
+    Profissional buscarProfissionalByEmail(String email);
 
     @Query("SELECT * FROM Profissional WHERE email = (:email) and senha = :senha")
-    Empresario buscarProfissionalLogin(String email, String senha);
+    Profissional buscarProfissionalLogin(String email, String senha);
 
     @Delete
     void remove(Profissional profissional);

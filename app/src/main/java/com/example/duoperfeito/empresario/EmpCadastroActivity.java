@@ -30,7 +30,7 @@ public class EmpCadastroActivity extends AppCompatActivity {
         email = findViewById(R.id.edtTxtEmail);
         senha = findViewById(R.id.edtTxtSenha);
         cpf = findViewById(R.id.edtTxtCpf);
-        cadastrar = findViewById(R.id.btnCadastro);
+        cadastrar = findViewById(R.id.btnAtualizar);
 
         empresarioRepository = new EmpresarioRepository(this);
         cadastrar.setOnClickListener(view -> {

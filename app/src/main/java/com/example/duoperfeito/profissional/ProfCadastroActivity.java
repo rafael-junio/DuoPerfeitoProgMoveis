@@ -9,11 +9,8 @@ import android.widget.Toast;
 
 import com.example.duoperfeito.R;
 import com.example.duoperfeito.database.DuoPerfeitoDatabase;
-import com.example.duoperfeito.database.dao.EmpresarioDAO;
 import com.example.duoperfeito.database.dao.ProfissionalDAO;
-import com.example.duoperfeito.model.Empresario;
 import com.example.duoperfeito.model.Profissional;
-import com.example.duoperfeito.repository.EmpresarioRepository;
 import com.example.duoperfeito.repository.ProfissionalRepository;
 
 public class ProfCadastroActivity extends AppCompatActivity {
@@ -32,7 +29,7 @@ public class ProfCadastroActivity extends AppCompatActivity {
         email = findViewById(R.id.edtTxtEmail);
         senha = findViewById(R.id.edtTxtSenha);
         cpf = findViewById(R.id.edtTxtCpf);
-        cadastrar = findViewById(R.id.btnCadastro);
+        cadastrar = findViewById(R.id.btnAtualizar);
 
         profissionalRepository = new ProfissionalRepository(this);
         cadastrar.setOnClickListener(view -> {

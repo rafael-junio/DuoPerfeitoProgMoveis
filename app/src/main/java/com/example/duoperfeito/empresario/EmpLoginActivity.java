@@ -8,13 +8,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.duoperfeito.MainActivity;
 import com.example.duoperfeito.R;
 import com.example.duoperfeito.database.DuoPerfeitoDatabase;
 import com.example.duoperfeito.database.dao.EmpresarioDAO;
 import com.example.duoperfeito.model.Empresario;
-import com.example.duoperfeito.profissional.ProfLoginActivity;
-import com.example.duoperfeito.repository.EmpresarioRepository;
 
 public class EmpLoginActivity extends AppCompatActivity {
     EditText email, senha;
@@ -29,7 +26,7 @@ public class EmpLoginActivity extends AppCompatActivity {
 
     private void startButtons() {
         Button btnLogin = findViewById(R.id.btnLogin);
-        Button btnCadastro = findViewById(R.id.btnCadastro);
+        Button btnCadastro = findViewById(R.id.btnAtualizar);
 
         btnLogin.setOnClickListener(view -> {
             email = findViewById(R.id.edtTxtEmail);

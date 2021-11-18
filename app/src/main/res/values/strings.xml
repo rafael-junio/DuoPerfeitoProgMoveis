@@ -12,6 +12,7 @@
     <string name="hintCpf">CPF</string>
     <string name="btnLoginText">Log in</string>
     <string name="btnCadastroText">Cadastre-se</string>
+    <string name="btnEditText">Atualizar</string>
     <!--  Main Emp/Prof Activity Strings  -->
     <string name="btnAddInfoText">Adicionar informações pessoais</string>
     <string name="btnStatsInfoText">Consultar status das vagas tentadas</string>

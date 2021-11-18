@@ -1,5 +1,6 @@
 package com.example.duoperfeito.model;
 
+import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
@@ -9,8 +10,11 @@ public class Profissional extends Pessoa{
 
     @PrimaryKey(autoGenerate = true)
     private long id = 0;
+    @ColumnInfo(typeAffinity = ColumnInfo.BLOB)
+    private byte [] image;
     private boolean disponivel = false;
     private String cargo = null;
+
     private String curriculo = null;
 
     @Ignore
@@ -56,4 +60,8 @@ public class Profissional extends Pessoa{
     public String getCurriculo() {
         return curriculo;
     }
+
+    public byte[] getImage() { return image; }
+
+    public void setImage(byte[] image) { this.image = image; }
 }

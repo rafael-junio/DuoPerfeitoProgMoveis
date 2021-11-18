@@ -10,12 +10,8 @@ import android.widget.Toast;
 
 import com.example.duoperfeito.R;
 import com.example.duoperfeito.database.DuoPerfeitoDatabase;
-import com.example.duoperfeito.database.dao.EmpresarioDAO;
 import com.example.duoperfeito.database.dao.ProfissionalDAO;
-import com.example.duoperfeito.empresario.EmpCadastroActivity;
-import com.example.duoperfeito.empresario.EmpLoginActivity;
-import com.example.duoperfeito.empresario.EmpMainActivity;
-import com.example.duoperfeito.model.Empresario;
+import com.example.duoperfeito.model.Profissional;
 
 public class ProfLoginActivity extends AppCompatActivity {
 
@@ -31,7 +27,7 @@ public class ProfLoginActivity extends AppCompatActivity {
 
     private void startButtons() {
         Button btnLogin = findViewById(R.id.btnLogin);
-        Button btnCadastro = findViewById(R.id.btnCadastro);
+        Button btnCadastro = findViewById(R.id.btnAtualizar);
 
         btnLogin.setOnClickListener(view -> {
             email = findViewById(R.id.edtTxtEmail);
@@ -49,8 +45,8 @@ public class ProfLoginActivity extends AppCompatActivity {
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
-                        Empresario empresarioEntity = profissionalDAO.buscarProfissionalLogin(emailTxt, senhaTxt);
-                        if (empresarioEntity == null) {
+                        Profissional profissionalEntity = profissionalDAO.buscarProfissionalLogin(emailTxt, senhaTxt);
+                        if (profissionalEntity == null) {
                             runOnUiThread(new Runnable() {
                                 @Override
                                 public void run() {
@@ -59,7 +55,8 @@ public class ProfLoginActivity extends AppCompatActivity {
                             });
                         }
                         else {
-                            Intent it = new Intent(ProfLoginActivity.this, ProfMainActivity.class);
+                            Intent it = new Intent(ProfLoginActivity.this,
+                                    ProfMainActivity.class).putExtra("email", emailTxt);
                             startActivity(it);
                         }
                     }

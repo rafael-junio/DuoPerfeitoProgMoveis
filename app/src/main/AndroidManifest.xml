@@ -3,6 +3,7 @@
     package="com.example.duoperfeito">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
@@ -11,7 +12,11 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.DuoPerfeito">
+        android:theme="@style/Theme.DuoPerfeito"
+        android:largeHeap="true">
+        <activity
+            android:name=".profissional.ProfEditAcivity"
+            android:exported="true" />
         <activity
             android:name=".profissional.ProfMainActivity"
             android:exported="true" />
