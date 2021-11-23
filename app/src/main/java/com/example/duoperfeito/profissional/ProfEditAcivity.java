@@ -42,25 +42,12 @@ public class ProfEditAcivity extends AppCompatActivity {
         imgProfile = findViewById(R.id.imgProfile);
         atualizar = findViewById(R.id.btnAtualizar);
 
+        recoverUserData(emailTxt);
+        setUpdateButton(emailTxt);
+        setCameraButton();
+    }
 
-
-        DuoPerfeitoDatabase database = DuoPerfeitoDatabase.getInstance(getApplicationContext());
-        final ProfissionalDAO profissionalDAO = database.getProfissionalDAO();
-
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                profissionalEntity = profissionalDAO.buscarProfissionalByEmail(emailTxt);
-                setFields();
-            }
-        }).start();
-
-        imgProfile.setOnClickListener(view -> {
-            if (checkPermissions()) {
-                capturarCamera();
-            }
-        });
-
+    private void setUpdateButton(String emailTxt) {
         atualizar.setOnClickListener(view -> {
             nome = findViewById(R.id.edtTxtNome);
             telefone = findViewById(R.id.edtTxtTelefone);
@@ -81,7 +68,10 @@ public class ProfEditAcivity extends AppCompatActivity {
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
+                        DuoPerfeitoDatabase database = DuoPerfeitoDatabase.getInstance(getApplicationContext());
+                        final ProfissionalDAO profissionalDAO = database.getProfissionalDAO();
                         profissionalDAO.atualiza(profissionalEntity);
+                        database.close();
                     }
                 }).start();
                 Intent it = new Intent(ProfEditAcivity.this,
@@ -90,6 +80,27 @@ public class ProfEditAcivity extends AppCompatActivity {
             }
 
         });
+    }
+
+    private void setCameraButton() {
+        imgProfile.setOnClickListener(view -> {
+            if (checkPermissions()) {
+                capturarCamera();
+            }
+        });
+    }
+
+    private void recoverUserData(String emailTxt) {
+        DuoPerfeitoDatabase database = DuoPerfeitoDatabase.getInstance(getApplicationContext());
+        final ProfissionalDAO profissionalDAO = database.getProfissionalDAO();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                profissionalEntity = profissionalDAO.buscarProfissionalByEmail(emailTxt);
+                setFields();
+                database.close();
+            }
+        }).start();
     }
 
     private void setFields() {
@@ -107,7 +118,9 @@ public class ProfEditAcivity extends AppCompatActivity {
         senha.setText(profissionalEntity.getSenha());
 
         if (profissionalEntity.getImage() != null){
-            imgProfile.setImageBitmap(convertByteArrayToBitmap(profissionalEntity.getImage()));
+            imgProfile.setImageBitmap(Bitmap.createScaledBitmap(
+                    convertByteArrayToBitmap(
+                            profissionalEntity.getImage()), 150, 150, false));
         }
     }
 
@@ -125,7 +138,7 @@ public class ProfEditAcivity extends AppCompatActivity {
             Bundle bundle = data.getExtras();
             Bitmap bitmapImg = (Bitmap) bundle.get("data");
             imgByteProfile = convertImageViewToByteArray(bitmapImg);
-            imgProfile.setImageBitmap(bitmapImg);
+            imgProfile.setImageBitmap(Bitmap.createScaledBitmap(bitmapImg, 150, 150, false));
         }
 
 

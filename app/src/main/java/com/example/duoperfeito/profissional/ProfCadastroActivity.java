@@ -24,6 +24,10 @@ public class ProfCadastroActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_prof_cadastro);
 
+        setCadastroButton();
+    }
+
+    private void setCadastroButton() {
         nome = findViewById(R.id.edtTxtNome);
         telefone = findViewById(R.id.edtTxtTelefone);
         email = findViewById(R.id.edtTxtEmail);
@@ -31,7 +35,6 @@ public class ProfCadastroActivity extends AppCompatActivity {
         cpf = findViewById(R.id.edtTxtCpf);
         cadastrar = findViewById(R.id.btnAtualizar);
 
-        profissionalRepository = new ProfissionalRepository(this);
         cadastrar.setOnClickListener(view -> {
             Profissional profissionalEntity = new Profissional();
             profissionalEntity.setNome(nome.getText().toString());
@@ -48,6 +51,7 @@ public class ProfCadastroActivity extends AppCompatActivity {
                     @Override
                     public void run() {
                         profissionalDao.salvar(profissionalEntity);
+                        database.close();
                         runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
@@ -60,19 +64,9 @@ public class ProfCadastroActivity extends AppCompatActivity {
             else {
                 Toast.makeText(getApplicationContext(), "Preencha todos os campos!", Toast.LENGTH_SHORT).show();
             }
-//            empresarioRepository.salva(empresario, new EmpresarioRepository.DadosCarregadosCallback<Empresario>() {
-//                @Override
-//                public void quandoSucesso(Empresario resultado) {
-//                    Toast.makeText(getApplicationContext(), "Empresário cadastrado!", Toast.LENGTH_SHORT).show();
-//                }
-//
-//                @Override
-//                public void quandoFalha(String erro) {
-//                    Toast.makeText(getApplicationContext(), "Preencha corretamente os campos!", Toast.LENGTH_SHORT).show();
-//                }
-//            });
         });
     }
+
     private Boolean validaInput (Profissional profissionalEntity) {
         return !profissionalEntity.getNome().isEmpty() &&
                 !profissionalEntity.getCpf().isEmpty() &&

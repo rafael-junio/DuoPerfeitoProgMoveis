@@ -28,6 +28,18 @@ public class EmpLoginActivity extends AppCompatActivity {
         Button btnLogin = findViewById(R.id.btnLogin);
         Button btnCadastro = findViewById(R.id.btnAtualizar);
 
+        setLoginButton(btnLogin);
+        setCadastroButton(btnCadastro);
+    }
+
+    private void setCadastroButton(Button btnCadastro) {
+        btnCadastro.setOnClickListener(view -> {
+            Intent it = new Intent(EmpLoginActivity.this, EmpCadastroActivity.class);
+            startActivity(it);
+        });
+    }
+
+    private void setLoginButton(Button btnLogin) {
         btnLogin.setOnClickListener(view -> {
             email = findViewById(R.id.edtTxtEmail);
             senha = findViewById(R.id.edtTxtSenha);
@@ -61,10 +73,6 @@ public class EmpLoginActivity extends AppCompatActivity {
                 }).start();
             }
 
-        });
-        btnCadastro.setOnClickListener(view -> {
-            Intent it = new Intent(EmpLoginActivity.this, EmpCadastroActivity.class);
-            startActivity(it);
         });
     }
 }

@@ -25,6 +25,10 @@ public class EmpCadastroActivity extends AppCompatActivity {
         setContentView(R.layout.activity_emp_cadastro);
 
 
+        startCadastrarButton();
+    }
+
+    private void startCadastrarButton() {
         nome = findViewById(R.id.edtTxtNome);
         telefone = findViewById(R.id.edtTxtTelefone);
         email = findViewById(R.id.edtTxtEmail);
@@ -61,19 +65,9 @@ public class EmpCadastroActivity extends AppCompatActivity {
             else {
                 Toast.makeText(getApplicationContext(), "Preencha todos os campos!", Toast.LENGTH_SHORT).show();
             }
-//            empresarioRepository.salva(empresario, new EmpresarioRepository.DadosCarregadosCallback<Empresario>() {
-//                @Override
-//                public void quandoSucesso(Empresario resultado) {
-//                    Toast.makeText(getApplicationContext(), "Empresário cadastrado!", Toast.LENGTH_SHORT).show();
-//                }
-//
-//                @Override
-//                public void quandoFalha(String erro) {
-//                    Toast.makeText(getApplicationContext(), "Preencha corretamente os campos!", Toast.LENGTH_SHORT).show();
-//                }
-//            });
         });
     }
+
     private Boolean validaInput (Empresario empresarioEntity) {
         return !empresarioEntity.getNome().isEmpty() &&
                 !empresarioEntity.getCpf().isEmpty() &&
