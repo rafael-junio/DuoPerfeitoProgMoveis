@@ -19,4 +19,5 @@
     <string name="btnSearchInfoText">Procurar por vagas</string>
     <string name="btnEmpVagasText">Administrar e adicionar vagas</string>
     <string name="btnEmpCurrText">Analisar currículos</string>
+    <string name="btnEditRemover">Excluir</string>
 </resources>
