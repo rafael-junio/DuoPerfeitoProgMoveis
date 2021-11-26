@@ -42,11 +42,9 @@ public class ProfEditAcivity extends AppCompatActivity {
         String emailTxt = getIntent().getStringExtra("email");
         imgProfile = findViewById(R.id.imgProfile);
         atualizar = findViewById(R.id.btnAtualizar);
-        remover = findViewById(R.id.btnAtualizar);
 
         recoverUserData(emailTxt);
         setUpdateButton(emailTxt);
-        setRemoveButton();
         setCameraButton();
     }
 
@@ -82,24 +80,6 @@ public class ProfEditAcivity extends AppCompatActivity {
                 startActivity(it);
             }
 
-        });
-    }
-
-    private void setRemoveButton() {
-        remover.setOnClickListener(view -> {
-            new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    DuoPerfeitoDatabase database = DuoPerfeitoDatabase.getInstance(getApplicationContext());
-                    final ProfissionalDAO profissionalDAO = database.getProfissionalDAO();
-                    profissionalDAO.remove(profissionalEntity);
-                    database.close();
-                }
-            }).start();
-            Intent it = new Intent(ProfEditAcivity.this,
-                    MainActivity.class);
-            startActivity(it);
-            finish();
         });
     }
 

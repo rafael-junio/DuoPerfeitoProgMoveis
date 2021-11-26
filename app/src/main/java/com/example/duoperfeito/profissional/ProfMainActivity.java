@@ -31,5 +31,11 @@ public class ProfMainActivity extends AppCompatActivity {
                     ProfEditAcivity.class).putExtra("email", emailTxt);
             startActivity(it);
         });
+
+        btnSearchProf.setOnClickListener(view -> {
+            Intent it = new Intent(ProfMainActivity.this,
+                    ProfVagasActivity.class).putExtra("email", emailTxt);
+            startActivity(it);
+        });
     }
 }
