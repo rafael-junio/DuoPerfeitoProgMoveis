@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.ContextMenu;
 import android.view.MenuItem;
 import android.view.View;
@@ -31,7 +32,7 @@ public class EmpVagasActivity extends AppCompatActivity {
 
         DuoPerfeitoDatabase database = DuoPerfeitoDatabase.getInstance(this);
         VagaDAO vagaDAO = database.getVagaDAO();
-        listVagasView = new ListVagasView(this, vagaDAO);
+        listVagasView = new ListVagasView(this, vagaDAO, this);
         configureBtns();
         initializeList();
     }
@@ -71,7 +72,7 @@ public class EmpVagasActivity extends AppCompatActivity {
         listEquipamentos.setOnItemClickListener((parent, view, position, id) -> {
             Vaga vagaSelecionada = (Vaga) parent.getItemAtPosition(position);
             Intent goToActivity = new Intent(EmpVagasActivity.this, EmpVagasCadastroActivity.class);
-//            goToActivity.putExtra("vaga", vagaSelecionada);
+            goToActivity.putExtra("vaga", vagaSelecionada);
             startActivity(goToActivity);
         });
     }

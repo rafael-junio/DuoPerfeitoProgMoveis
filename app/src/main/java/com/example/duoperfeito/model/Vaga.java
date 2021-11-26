@@ -6,25 +6,20 @@ import androidx.room.ForeignKey;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
+import java.io.Serializable;
+
 @Entity(foreignKeys = @ForeignKey(entity = Empresario.class, parentColumns = "id", childColumns = "empresario_id"))
-public class Vaga {
+public class Vaga  implements Serializable {
 
     @PrimaryKey(autoGenerate = true)
     private long id = 0;
 
     private String nome;
+    private String endereco;
     private String cep;
 
     @ColumnInfo
     private Long empresario_id;
-
-    @Ignore
-    public Vaga(long id, String nome, Long empresario_id, String cep) {
-        this.id = id;
-        this.nome = nome;
-        this.empresario_id = empresario_id;
-        this.cep = cep;
-    }
 
     public Vaga() {
 
@@ -60,5 +55,13 @@ public class Vaga {
 
     public void setCep(String cep) {
         this.cep = cep;
+    }
+
+    public String getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
     }
 }
