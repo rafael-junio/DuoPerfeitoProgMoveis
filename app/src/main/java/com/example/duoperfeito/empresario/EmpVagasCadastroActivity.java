@@ -34,18 +34,13 @@ public class EmpVagasCadastroActivity extends AppCompatActivity {
     private void startCadastrarButton() {
         cadastrarVaga.setOnClickListener(view -> {
             Vaga vagaEntity = new Vaga();
-            Endereco enderecoEntity = new Endereco();
 
             vagaEntity.setNome(nome.getText().toString());
             vagaEntity.setCep(cep.getText().toString());
 
-            enderecoEntity.setCep(cep.getText().toString());
-            enderecoEntity.setLogradouro(endereco.getText().toString());
-
-            vagaEntity.setEndereco(enderecoEntity);
             if (validaInput(vagaEntity)) {
                 DuoPerfeitoDatabase database = DuoPerfeitoDatabase.getInstance(getApplicationContext());
-                final VagaDAO vagaDAO = database.getVagaDao();
+                final VagaDAO vagaDAO = database.getVagaDAO();
                 new Thread(new Runnable() {
                     @Override
                     public void run() {

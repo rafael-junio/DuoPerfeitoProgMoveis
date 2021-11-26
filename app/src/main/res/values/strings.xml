@@ -20,4 +20,6 @@
     <string name="btnEmpVagasText">Administrar e adicionar vagas</string>
     <string name="btnEmpCurrText">Analisar currículos</string>
     <string name="btnEditRemover">Excluir</string>
+    <string name="inserir">Inserir</string>
+    <string name="menu_remove">Remover</string>
 </resources>

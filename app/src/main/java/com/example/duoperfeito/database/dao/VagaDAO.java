@@ -17,22 +17,19 @@ import java.util.List;
 public interface VagaDAO {
 
     @Insert
-    long salvar(Profissional profissional);
+    long salvar(Vaga vaga);
 
     @Update
-    void atualiza(Profissional profissional);
+    void atualiza(Vaga vaga);
 
     @Query("SELECT * FROM Vaga")
-    List<Profissional> buscaTodos();
+    List<Vaga> buscaTodos();
 
     @Query("SELECT * FROM Vaga WHERE id = :id")
-    Profissional buscaProfissional(long id);
-
-    @Query("SELECT * FROM Vaga WHERE profissional_id = :profissional_id")
-    Profissional buscarProfissional(Long profissional_id);
+    Vaga buscaVaga(long id);
 
     @Query("SELECT * FROM Vaga WHERE empresario_id = :empresario_id")
-    Empresario buscarEmpresario(Long empresario_id);
+    Empresario buscaEmpresario(Long empresario_id);
 
     @Delete
     void remove(Vaga vaga);

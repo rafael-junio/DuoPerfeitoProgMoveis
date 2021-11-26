@@ -19,6 +19,9 @@ public class Endereco {
         this.numero = numero;
     }
 
+    public Endereco() {
+    }
+
     public String getCep() {
         return cep;
     }
