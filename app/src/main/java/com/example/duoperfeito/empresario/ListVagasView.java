@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.MenuItem;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -43,7 +44,12 @@ public class ListVagasView {
     }
 
     public void updateList() {
-        adapter.update(database.buscaTodos());
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                adapter.update(database.buscaTodos());
+            }
+        }).start();
     }
 
     public void initializeAdapter(ListView listEquipamentos) {
