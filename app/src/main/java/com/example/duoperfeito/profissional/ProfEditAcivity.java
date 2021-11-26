@@ -18,6 +18,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 
+import com.example.duoperfeito.MainActivity;
 import com.example.duoperfeito.R;
 import com.example.duoperfeito.database.DuoPerfeitoDatabase;
 import com.example.duoperfeito.database.dao.ProfissionalDAO;
@@ -29,7 +30,7 @@ public class ProfEditAcivity extends AppCompatActivity {
 
     ImageView imgProfile;
     EditText nome, telefone, email, cpf, senha;
-    Button atualizar;
+    Button atualizar, remover;
     Profissional profissionalEntity;
     byte[] imgByteProfile;
 
@@ -41,9 +42,11 @@ public class ProfEditAcivity extends AppCompatActivity {
         String emailTxt = getIntent().getStringExtra("email");
         imgProfile = findViewById(R.id.imgProfile);
         atualizar = findViewById(R.id.btnAtualizar);
+        remover = findViewById(R.id.btnAtualizar);
 
         recoverUserData(emailTxt);
         setUpdateButton(emailTxt);
+        setRemoveButton();
         setCameraButton();
     }
 
@@ -79,6 +82,24 @@ public class ProfEditAcivity extends AppCompatActivity {
                 startActivity(it);
             }
 
+        });
+    }
+
+    private void setRemoveButton() {
+        remover.setOnClickListener(view -> {
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    DuoPerfeitoDatabase database = DuoPerfeitoDatabase.getInstance(getApplicationContext());
+                    final ProfissionalDAO profissionalDAO = database.getProfissionalDAO();
+                    profissionalDAO.remove(profissionalEntity);
+                    database.close();
+                }
+            }).start();
+            Intent it = new Intent(ProfEditAcivity.this,
+                    MainActivity.class);
+            startActivity(it);
+            finish();
         });
     }
 
