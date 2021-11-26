@@ -15,6 +15,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DuoPerfeito">
         <activity
+            android:name=".empresario.EmpVagasCadastroActivity"
+            android:exported="false" />
+        <activity
             android:name=".empresario.EmpCandActivity"
             android:exported="false" />
         <activity

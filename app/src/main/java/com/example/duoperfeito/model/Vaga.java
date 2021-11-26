@@ -17,6 +17,7 @@ public class Vaga {
 
     private String nome;
     private Endereco endereco;
+    private String cep;
 
     @ColumnInfo
     private Long empresario_id;
@@ -25,12 +26,13 @@ public class Vaga {
     private Long profissional_id;
 
     @Ignore
-    public Vaga(long id, String nome, Long empresario_id, Long profissional_id, Endereco endereco) {
+    public Vaga(long id, String nome, Long empresario_id, Long profissional_id, Endereco endereco, String cep) {
         this.id = id;
         this.nome = nome;
         this.empresario_id = empresario_id;
         this.profissional_id = profissional_id;
         this.endereco = endereco;
+        this.cep = cep;
     }
 
     public Vaga() {
@@ -75,5 +77,13 @@ public class Vaga {
 
     public void setProfissional_id(Long profissional_id) {
         this.profissional_id = profissional_id;
+    }
+
+    public String getCep() {
+        return cep;
+    }
+
+    public void setCep(String cep) {
+        this.cep = cep;
     }
 }
